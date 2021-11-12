@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <title>Uber & Lyft Price Prediction</title>
+</head>
+<body>
+    <div class="form">
+        <h1>Predict Uber & Lyft Price </h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="distance" placeholder="Distance" required="required"/>
+            <select name= "service" >
+                    <option value="Shared">Shared</option>
+                    <option value="Lyft">Lyft</option>
+                    <option value="Lyft XL">Lyft XL</option>
+                    <option value="Lux">Lux</option>
+                    <option value="Lux Black">Lux Black</option>
+                    <option value="Lux Black XL">Lux Black XL</option>
+                    <option value="UberX">UberX</option>
+                    <option value="UberXL">UberXL</option>
+                    <option value="UberPool">UberPool</option>
+                    <option value="Black">Black</option>
+                    <option value="Black SUV">Black SUV</option>
+                    <option value="WAV">WAV</option>
+                    
+            </select>
+            <input type="text" name="surge" placeholder="Surge Multiplier"  required="required"/>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <p class="message"><strong><h2>{{prediction_text}}</h2></strong></p>
+    </div>
+</body>
+</html>
